@@ -1,0 +1,241 @@
+[gd_scene load_steps=16 format=1]
+
+[ext_resource path="res://pics/weirdGround.png" type="Texture" id=1]
+[ext_resource path="res://pics/road.png" type="Texture" id=2]
+[ext_resource path="res://objects/tree.tscn" type="PackedScene" id=3]
+[ext_resource path="res://pics/orange.png" type="Texture" id=4]
+[ext_resource path="res://scripts/elevated.gd" type="Script" id=5]
+[ext_resource path="res://pics/shop.png" type="Texture" id=6]
+[ext_resource path="res://pics/library.png" type="Texture" id=7]
+[ext_resource path="res://objects/building.tscn" type="PackedScene" id=8]
+[ext_resource path="res://pics/door.png" type="Texture" id=9]
+[ext_resource path="res://pics/car.png" type="Texture" id=10]
+[ext_resource path="res://pics/busSign.png" type="Texture" id=11]
+[ext_resource path="res://enemies/crab.tscn" type="PackedScene" id=12]
+[ext_resource path="res://objects/player.tscn" type="PackedScene" id=13]
+[ext_resource path="res://objects/plant.tscn" type="PackedScene" id=14]
+
+[sub_resource type="GDScript" id=1]
+
+script/source = "extends \"res://scripts/level.gd\"
+
+
+func woman():
+	yield(say(\"Angela Crawfordstein\",\"helkl eyah\\nI am seriously going to kill you one day it's\\nnot a fuckling JOKE I AM GOING TO KILL YOU Orange Man\"),\"read\")
+	var choice = yield(say(\"Orange Man Hell yeah RED MUSAHROOM FROM THE BANGO!!!!!!!!\",\"Shut the fuck up bitch you do \\n not know WHO IU am I am ORANGE MAN HEL YEH\",[\"yes\",\"no\"]),\"read\")
+	if (choice == 0): say(\"box\",\"you said the first optuion I forget what it is\")
+	if (choice == 1): say(\"box\",\"you said the seconDE optuion I forget what it is\")
+
+func post():
+	var choice = yield(say(\"Bus Stop Sign\",\"Bus Stop\",[\"cool\",\"wow\",\"ah\"]),\"read\")
+
+func orangeDoor():
+	global.transport(\"house\",\"door\")
+
+func libraryDoor():
+	global.transport(\"library\",\"door\")
+
+func shopDoor():
+	global.transport(\"shop\",\"door\")"
+
+[node name="level" type="Node2D"]
+
+script/script = SubResource( 1 )
+song = "res://songs/invisible.ogg"
+
+[node name="ground" type="Sprite" parent="."]
+
+texture = ExtResource( 1 )
+centered = false
+region = true
+region_rect = Rect2( 0, 0, 1500, 1300 )
+
+[node name="road" type="Sprite" parent="ground"]
+
+transform/pos = Vector2( 0, 500 )
+texture = ExtResource( 2 )
+centered = false
+region = true
+region_rect = Rect2( 0, 0, 1500, 400 )
+
+[node name="dudes" type="Node2D" parent="."]
+
+[node name="tree" parent="dudes" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 905.239, 250.527 )
+floating = 0
+radius = 0
+height = 0
+flippy = false
+collider = true
+
+[node name="tree1" parent="dudes" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 791.755, 293.19 )
+floating = 0
+radius = 0
+height = 0
+flippy = false
+collider = true
+
+[node name="tree2" parent="dudes" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 538.714, 922.117 )
+floating = 0
+radius = 0
+height = 0
+flippy = false
+collider = true
+
+[node name="tree3" parent="dudes" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 482.644, 116.452 )
+floating = 0
+radius = 0
+height = 0
+flippy = false
+collider = true
+
+[node name="orange" type="Sprite" parent="dudes"]
+
+transform/pos = Vector2( 338.169, 237.074 )
+texture = ExtResource( 4 )
+offset = Vector2( 1.49945, -65.086 )
+script/script = ExtResource( 5 )
+floating = 0
+radius = 0
+height = 0
+flippy = false
+collider = true
+
+[node name="shop" type="Sprite" parent="dudes"]
+
+transform/pos = Vector2( 850.135, 978.626 )
+texture = ExtResource( 6 )
+offset = Vector2( 1.49945, -65.086 )
+script/script = ExtResource( 5 )
+floating = 0
+radius = 0
+height = 0
+flippy = false
+collider = true
+
+[node name="library" type="Sprite" parent="dudes"]
+
+transform/pos = Vector2( 1111.05, 367.32 )
+texture = ExtResource( 7 )
+offset = Vector2( 10.9921, -133.805 )
+script/script = ExtResource( 5 )
+floating = 0
+radius = 0
+height = 0
+flippy = false
+collider = true
+
+[node name="orangeDoor" parent="dudes" instance=ExtResource( 8 )]
+
+editor/display_folded = true
+transform/pos = Vector2( 339.476, 323.086 )
+texture = ExtResource( 9 )
+offset = Vector2( -1.27856, -36.144 )
+floating = 0
+radius = 0
+height = 0
+flippy = false
+collider = true
+
+[node name="drop" type="Position2D" parent="dudes/orangeDoor"]
+
+transform/pos = Vector2( -1.62109, 55.6572 )
+
+[node name="libraryDoor" parent="dudes" instance=ExtResource( 8 )]
+
+editor/display_folded = true
+transform/pos = Vector2( 1129.32, 460.254 )
+texture = ExtResource( 9 )
+offset = Vector2( -1.27856, -36.144 )
+floating = 0
+radius = 0
+height = 0
+flippy = false
+collider = true
+
+[node name="drop" type="Position2D" parent="dudes/libraryDoor"]
+
+transform/pos = Vector2( -1.62109, 55.6572 )
+
+[node name="shopDoor" parent="dudes" instance=ExtResource( 8 )]
+
+editor/display_folded = true
+transform/pos = Vector2( 857.28, 1069.11 )
+texture = ExtResource( 9 )
+offset = Vector2( -1.27856, -36.144 )
+floating = 0
+radius = 0
+height = 0
+flippy = false
+collider = true
+
+[node name="drop" type="Position2D" parent="dudes/shopDoor"]
+
+transform/pos = Vector2( -1.62109, 55.6572 )
+
+[node name="bus" type="Sprite" parent="dudes"]
+
+transform/pos = Vector2( 658.609, 622.716 )
+texture = ExtResource( 10 )
+offset = Vector2( 17.2605, -43.4631 )
+script/script = ExtResource( 5 )
+floating = 0
+radius = 0
+height = 0
+flippy = false
+collider = true
+
+[node name="post" type="Sprite" parent="dudes"]
+
+transform/pos = Vector2( 725.245, 482.727 )
+texture = ExtResource( 11 )
+offset = Vector2( -1.40448, -55.8872 )
+script/script = ExtResource( 5 )
+floating = 0
+radius = 0
+height = 0
+flippy = false
+collider = true
+
+[node name="crab" parent="dudes" instance=ExtResource( 12 )]
+
+transform/pos = Vector2( 176.376, 315.249 )
+floating = 0
+radius = 0
+height = 0
+flippy = false
+collider = true
+
+[node name="player" parent="dudes" instance=ExtResource( 13 )]
+
+transform/pos = Vector2( 341.274, 376.731 )
+collider = true
+
+[node name="plant" parent="dudes" instance=ExtResource( 14 )]
+
+transform/pos = Vector2( 411.661, 360.381 )
+
+[node name="plant1" parent="dudes" instance=ExtResource( 14 )]
+
+transform/pos = Vector2( 276.611, 357.926 )
+
+[node name="plant2" parent="dudes" instance=ExtResource( 14 )]
+
+transform/pos = Vector2( 486.553, 478.244 )
+
+[node name="plant3" parent="dudes" instance=ExtResource( 14 )]
+
+transform/pos = Vector2( 1061.13, 486.838 )
+
+[node name="plant4" parent="dudes" instance=ExtResource( 14 )]
+
+transform/pos = Vector2( 1024.3, 469.65 )
+
+

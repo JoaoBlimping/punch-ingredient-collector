@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=1]
+
+[ext_resource path="res://pics/bullet.png" type="Texture" id=1]
+[ext_resource path="res://scripts/bouncy.gd" type="Script" id=2]
+
+[node name="bullet" type="Sprite"]
+
+transform/pos = Vector2( -0.676105, 15.6918 )
+texture = ExtResource( 1 )
+offset = Vector2( 0.676105, -15.6918 )
+script/script = ExtResource( 2 )
+floating = 0
+radius = 0
+height = 0
+flippy = false
+speed = 200
+bounce = 0.5
+health = 1
+
+

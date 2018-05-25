@@ -1,0 +1,53 @@
+[gd_scene load_steps=4 format=1]
+
+[ext_resource path="res://pics/powder.png" type="Texture" id=1]
+[ext_resource path="res://objects/player.tscn" type="PackedScene" id=2]
+
+[sub_resource type="GDScript" id=1]
+
+script/source = "extends \"res://scripts/level.gd\"
+
+
+func woman():
+	yield(say(\"Angela Crawfordstein\",\"helkl eyah\\nI am seriously going to kill you one day it's\\nnot a fuckling JOKE I AM GOING TO KILL YOU Orange Man\"),\"read\")
+	var choice = yield(say(\"Orange Man Hell yeah RED MUSAHROOM FROM THE BANGO!!!!!!!!\",\"Shut the fuck up bitch you do \\n not know WHO IU am I am ORANGE MAN HEL YEH\",[\"yes\",\"no\"]),\"read\")
+	if (choice == 0): say(\"box\",\"you said the first optuion I forget what it is\")
+	if (choice == 1): say(\"box\",\"you said the seconDE optuion I forget what it is\")
+
+func post():
+	var choice = yield(say(\"Bus Stop Sign\",\"Bus Stop\",[\"cool\",\"wow\",\"ah\"]),\"read\")
+
+func orangeDoor():
+	global.transport(\"house\",\"door\")
+
+func libraryDoor():
+	global.transport(\"library\",\"door\")
+
+func shopDoor():
+	global.transport(\"shop\",\"door\")"
+
+[node name="level" type="Node2D"]
+
+script/script = SubResource( 1 )
+song = "res://songs/invisible.ogg"
+
+[node name="ground" type="Sprite" parent="."]
+
+texture = ExtResource( 1 )
+centered = false
+region = true
+region_rect = Rect2( 0, 0, 1400, 1400 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="dudes" type="Node2D" parent="."]
+
+editor/display_folded = true
+
+[node name="player" parent="dudes" instance=ExtResource( 2 )]
+
+transform/pos = Vector2( 808.924, 618.907 )
+collider = true
+
+

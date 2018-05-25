@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=1]
+
+[ext_resource path="res://pics/girl.png" type="Texture" id=1]
+[ext_resource path="res://scripts/elevated.gd" type="Script" id=2]
+
+[node name="woman" type="Sprite"]
+
+transform/pos = Vector2( 629.862, 465.088 )
+texture = ExtResource( 1 )
+offset = Vector2( 0.118347, -34.6382 )
+script/script = ExtResource( 2 )
+
+

@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=1]
+
+[ext_resource path="res://pics/plant.png" type="Texture" id=1]
+[ext_resource path="res://scripts/plant.gd" type="Script" id=2]
+
+[node name="plant" type="Sprite"]
+
+transform/pos = Vector2( 766.477, 473.333 )
+texture = ExtResource( 1 )
+offset = Vector2( 0.918165, -20.4929 )
+hframes = 3
+script/script = ExtResource( 2 )
+floating = 0
+radius = 0
+height = 0
+flippy = false
+collider = false
+
+

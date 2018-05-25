@@ -1,0 +1,14 @@
+_init:
+	background gradient
+	frame mid 0.6
+	frame front 0.9
+	character hitler bat mid
+	character car car front
+
+_start:
+	say hitler "hello mates"
+	scroll 0 0 3
+	enter car from_left right
+	exit hitler fade
+	exit car from_right
+	scroll 0 0 1

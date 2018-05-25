@@ -1,0 +1,78 @@
+[gd_scene load_steps=5 format=1]
+
+[ext_resource path="res://pics/menu2.png" type="Texture" id=1]
+[ext_resource path="res://scripts/menu.gd" type="Script" id=2]
+[ext_resource path="res://pics/title.png" type="Texture" id=3]
+[ext_resource path="res://fonts/theme.tres" type="Theme" id=4]
+
+[node name="background" type="Sprite"]
+
+texture = ExtResource( 1 )
+centered = false
+region = true
+region_rect = Rect2( 0, 0, 1024, 768 )
+script/script = ExtResource( 2 )
+
+[node name="title" type="Sprite" parent="."]
+
+texture = ExtResource( 3 )
+centered = false
+
+[node name="play" type="Button" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+theme/theme = ExtResource( 4 )
+margin/left = 0.0
+margin/top = 672.0
+margin/right = 522.0
+margin/bottom = 770.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "Play"
+flat = false
+
+[node name="about" type="Button" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+theme/theme = ExtResource( 4 )
+margin/left = 1.0
+margin/top = 612.0
+margin/right = 1026.0
+margin/bottom = 674.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "About"
+flat = false
+
+[node name="quit" type="Button" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+theme/theme = ExtResource( 4 )
+margin/left = 522.0
+margin/top = 673.0
+margin/right = 1026.0
+margin/bottom = 768.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "Quit"
+flat = false
+
+[connection signal="button_down" from="play" to="." method="play"]
+
+[connection signal="button_down" from="about" to="." method="about"]
+
+[connection signal="button_down" from="quit" to="." method="quit"]
+
+
