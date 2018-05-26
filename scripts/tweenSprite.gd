@@ -12,18 +12,17 @@ var timer = 0
 var timeFrame = 0
 var modifyOffset = true
 
-func _init(texture,fixTop=true):
+func _init(texture,fixTop=true,centre=true):
 	set_texture(load("res://pics/visual/%s.png" % texture))
 	modifyOffset = fixTop
+	set_centered(centre)
 
 func _ready():
 	if (modifyOffset):
 		var screenHeight = get_viewport_rect().size.y
 		var height = get_texture().get_height()
 		set_offset(Vector2(0,screenHeight / 2 - height / 2 + FOOT_ROOM))
-	else:
-		set_global_scale(Vector2(1,1))
-	
+
 
 func _process(delta):
 	timer += delta
