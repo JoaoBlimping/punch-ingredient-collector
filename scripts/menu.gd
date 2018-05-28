@@ -5,7 +5,7 @@ func about():
 
 
 func play():
-	get_tree().change_scene("res://levels/town.tscn")
+	get_node("/root/global").read("start")
 
 func quit():
 	get_tree().quit()

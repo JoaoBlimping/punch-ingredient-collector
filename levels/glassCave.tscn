@@ -10,26 +10,7 @@
 
 [sub_resource type="GDScript" id=1]
 
-script/source = "extends \"res://scripts/level.gd\"
-
-
-func woman():
-	yield(say(\"Angela Crawfordstein\",\"helkl eyah\\nI am seriously going to kill you one day it's\\nnot a fuckling JOKE I AM GOING TO KILL YOU Orange Man\"),\"read\")
-	var choice = yield(say(\"Orange Man Hell yeah RED MUSAHROOM FROM THE BANGO!!!!!!!!\",\"Shut the fuck up bitch you do \\n not know WHO IU am I am ORANGE MAN HEL YEH\",[\"yes\",\"no\"]),\"read\")
-	if (choice == 0): say(\"box\",\"you said the first optuion I forget what it is\")
-	if (choice == 1): say(\"box\",\"you said the seconDE optuion I forget what it is\")
-
-func post():
-	var choice = yield(say(\"Bus Stop Sign\",\"Bus Stop\",[\"cool\",\"wow\",\"ah\"]),\"read\")
-
-func orangeDoor():
-	global.transport(\"house\",\"door\")
-
-func libraryDoor():
-	global.transport(\"library\",\"door\")
-
-func shopDoor():
-	global.transport(\"shop\",\"door\")"
+script/source = "extends \"res://scripts/level.gd\""
 
 [node name="level" type="Node2D"]
 

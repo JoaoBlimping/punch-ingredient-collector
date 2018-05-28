@@ -8,38 +8,22 @@ enum POSITIONS {left,middle,right}
 const DEFAULT_TWEEN = 0.5
 signal tweened
 
+onready var global = get_node("/root/global")
 onready var background = get_node("../background")
 onready var gui = get_node("../gui")
 onready var screen = get_viewport_rect()
+onready var music = get_node("../music")
 var guid = false
 
 
-func _ready():
+func _enter_tree():
 	set_process(true)
-	
-	changeBackground("gradient")
-	
-	yield(addSprite("bat","1",from_bottom,middle,1),"tweened")
-	yield(addSprite("bat","2",from_bottom,middle,1),"tweened")
-	yield(addSprite("bat","3",from_bottom,middle,1),"tweened")
-	yield(addSprite("bat","4",from_bottom,middle,1),"tweened")
-	yield(addSprite("bat","5",from_bottom,middle,1),"tweened")
-	
-	yield(say("Angela Crawfordstein","helkl eyah\nI am seriously going to kill you one day it's\nnot a fuckling JOKE I AM GOING TO KILL YOU Orange Man"),"read")
+	set_script(load("res://novels/%s.gd" % get_node("/root/global").novel))
 
 
-	yield(removeSprite("1",from_bottom),"tweened")
-	yield(removeSprite("2",from_bottom),"tweened")
-	yield(removeSprite("3",from_bottom),"tweened")
-	yield(removeSprite("4",from_bottom),"tweened")
-	yield(removeSprite("5",from_bottom),"tweened")
-	
-	yield(changeBackground("fire"),"tweened")
-	
-	yield(say("narattoror","Meanwhile at tango's house"),"read")
-	yield(addSprite("car","1",from_left,middle,1),"tweened")
-	yield(say("Angela Crawfordstein","It's nice out"),"read")
-	yield(removeSprite("1",from_right),"tweened")
+func changeMusic(song):
+	music.set_stream(load("res://songs/%s.ogg" % song))
+	music.play()
 
 
 func changeBackground(texture):
@@ -86,7 +70,7 @@ func settle():
 		i += 1
 
 
-func addSprite(name,specialName,entrance,position,fixTop=true):
+func enter(name,specialName,entrance=fade,position=middle,fixTop=true):
 	var sprite = tweenSprite.new(name,fixTop)
 	sprite.set_name(specialName)
 	add_child(sprite)
@@ -104,7 +88,7 @@ func addSprite(name,specialName,entrance,position,fixTop=true):
 	return sprite
 
 
-func removeSprite(name,entrance):
+func exit(name,entrance=fade):
 	var sprite = get_node(name)
 	var target = Vector2()
 	var opacityTarget = 1
@@ -123,7 +107,6 @@ func removeSprite(name,entrance):
 func spriteRemoved(sprite):
 	remove_child(sprite)
 	sprite.queue_free()
-	emit_signal("tweened")
 	settle()
 	yield(get_tree(), "idle_frame")
-	return sprite
+	emit_signal("tweened")

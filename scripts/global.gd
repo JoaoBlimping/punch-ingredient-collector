@@ -4,6 +4,7 @@ var levels = ["me"]
 var poems = {}
 var gainedPoems = ["filth","tango"]
 var door = null
+var novel = null
 
 func _enter_tree():
 	initPoems()
@@ -13,9 +14,13 @@ func initPoems():
 	file.open("res://poems/poems.json",File.READ)
 	poems.parse_json(file.get_as_text())
 
-func transport(map,startDoor):
+func transport(map,startDoor=null):
 	door = startDoor
 	get_tree().change_scene("res://levels/%s.tscn" % map)
+
+func read(n):
+	novel = n
+	get_tree().change_scene("res://scenes/novel.tscn")
 
 func joinArray(array):
 	var output = ""
