@@ -12,9 +12,9 @@ font_path = "res://fonts/boecklins.ttf"
 
 [sub_resource type="DynamicFont" id=2]
 
-font/size = 30
-font/use_mipmaps = false
-font/use_filter = false
+font/size = 28
+font/use_mipmaps = true
+font/use_filter = true
 font/font = SubResource( 1 )
 
 [node name="background" type="Sprite"]
@@ -52,31 +52,37 @@ size_flags/vertical = 2
 margin/left = -2.0
 margin/top = 1.0
 margin/right = 1021.0
-margin/bottom = 473.0
+margin/bottom = 798.0
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0, 1, 0.601562, 1 )
-custom_colors/font_color_shadow = Color( 0.15337, 0.114746, 0.3125, 1 )
-custom_constants/shadow_offset_x = 9
-custom_constants/shadow_offset_y = 16
+custom_colors/font_color_shadow = Color( 0.585914, 0.440079, 0.746094, 1 )
+custom_constants/shadow_offset_x = 2
+custom_constants/shadow_offset_y = 2
 custom_constants/shadow_as_outline = 0
 text = "Hello my friends I have got another game which I have cooked
 up in my computer for you to play and to adore.
 
-SO yoiu see, Orange Man is back in action after his world
-wide acclaimed music album and his appearance in league of
-scumbags, and this time he is going to have his most mysterious
-adventure yet!
+Actually, it is not a game, it is THREE games.. 
+hell yeah this is so good, I doubt you imagined this day would
+come I doubt you even hoped for this, especially in this non
+garden world that the fucking bastards force us to live in
+because they are ugly, ugly creatures that have no place
+in any garden at all!. but anyway
+
+These three games are a combination of Visual Novel,
+though I like to think of them more as like a computerised
+comic book with lazier art. But anyway, that is not all, the
+action is full on, real time, 2.75D action with bullets coming
+from the sides and the front and the back and also from above
+but generally not from below since you are standing on the ground
 
 In order to play the game you will press the WSAD keys for
 movent, and to aim your crosshair you will use the mouse.
 You will press the left arrow to shoot and to click though
 dialogue.
-The game is sort of 3D, so bullets can come from above and
-below and they can bounce, but don't worry as they have a
-shadow which tells you where they are.
 
-This game was made by the grand master of interactive
-experience design::: Dr. Dany Goliath Burton.
+This game was crafted by the grand master of interactive
+murder simulator design::: Dr. Dany Goliath Burton.
 I hope you have a fun game and death to america./"
 percent_visible = 1.0
 lines_skipped = 0

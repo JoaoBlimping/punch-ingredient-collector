@@ -11,8 +11,11 @@ script/script = ExtResource( 2 )
 floating = 0
 radius = 0
 height = 0
+gravityMultiplier = 1.0
+elevation = 0
 flippy = false
-hotHeight = 50
+collider = true
+hotHeight = 40
 
 [node name="camera" type="Camera2D" parent="."]
 

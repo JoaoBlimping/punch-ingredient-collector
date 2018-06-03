@@ -11,6 +11,8 @@ var collisionMask = COLLISION_TYPE.active
 export var floating = 0
 export var radius = 0
 export var height = 0
+export var gravityMultiplier = 1.0
+export var elevation = 0
 export var flippy = false
 export var collider = true
 
@@ -23,6 +25,7 @@ func _ready():
 	if (height == 0): height = texture.get_height() - radius
 	
 	if (position.length() == 0): posFromScreen(get_pos())
+	position.z += elevation
 	
 	if (not flippy and collider):
 		shadow = shadowShape.instance()
@@ -34,7 +37,7 @@ func _ready():
 
 func _process(delta):
 	# gravity
-	velocity.z -= GRAVITY * delta
+	velocity.z -= GRAVITY * gravityMultiplier * delta
 	
 	# move
 	position += velocity * delta
@@ -51,9 +54,9 @@ func _process(delta):
 
 
 func isColliding(other):
-	if (position.z < other.position.z + other.height and position.z + height > other.position.z):
+	if (position.z + height >= other.position.z and other.position.z + other.height >= position.z):
 		if (flippy or other.flippy): return (other.position - position).length() > abs(radius - other.radius)
-		else: return (other.position - position).length() <= radius + other.radius
+		else: return (other.floorPos() - floorPos()).length() <= radius + other.radius
 	else: return false
 
 func hit(other):

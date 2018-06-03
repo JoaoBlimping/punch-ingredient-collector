@@ -6,9 +6,12 @@ const T = "timeout"
 var routines = []
 var finished = false
 var health = 1
+var angle = 0
 export var hotHeight = 50
 
 func _process(delta):
+	if (angle > 0): set_scale(Vector2(-1,1))
+	if (angle < 0): set_scale(Vector2(1,1))
 	if (finished):
 		if (routines.size() > 1):
 			routines.pop_front()

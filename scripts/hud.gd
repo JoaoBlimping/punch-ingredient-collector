@@ -1,6 +1,8 @@
 extends CanvasLayer
 
 onready var global = get_node("/root/global")
+onready var player = get_node("/root/level/dudes/player")
+onready var health = get_node("health")
 onready var stream = get_node("poem/stream")
 onready var animation = get_node("poem/animation")
 onready var level = get_node("/root/level")
@@ -12,6 +14,7 @@ var poemState = POEM_STATE.closed
 enum POEM_STATE{closed,playing,open}
 
 func _ready():
+	set_process(true)
 	button.connect("pressed",self,"buttonPressed")
 	stream.connect("finished",self,"poemFinished")
 	
@@ -21,6 +24,12 @@ func _ready():
 		ib.set_clip_text(true)
 		ib.connect("pressed",self,"playPoem",[poem])
 		vbox.add_child(ib)
+
+func _process(delta):
+	var texture = health.get_texture()
+	var width = texture.get_width()
+	var height = texture.get_height()
+	health.set_region_rect(Rect2(0,0,width * player.health, height))
 
 func buttonPressed():
 	if (poemState == POEM_STATE.closed):

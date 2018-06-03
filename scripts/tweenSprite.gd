@@ -10,18 +10,11 @@ var opacityStart
 var opacityFinish
 var timer = 0
 var timeFrame = 0
-var modifyOffset = true
+var alive = true
 
-func _init(texture,fixTop=true,centre=true):
+func _init(texture,centre=true):
 	set_texture(load("res://pics/visual/%s.png" % texture))
-	modifyOffset = fixTop
 	set_centered(centre)
-
-func _ready():
-	if (modifyOffset):
-		var screenHeight = get_viewport_rect().size.y
-		var height = get_texture().get_height()
-		set_offset(Vector2(0,screenHeight / 2 - height / 2 + FOOT_ROOM))
 
 
 func _process(delta):
@@ -42,3 +35,9 @@ func go(target,time,opacityTarget=1):
 	timer = 0
 	timeFrame = time
 	set_process(true)
+
+func getWidth():
+	return get_texture().get_width()
+
+func getHeight():
+	return get_texture().get_height()

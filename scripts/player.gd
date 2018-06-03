@@ -1,11 +1,13 @@
 extends "enemy.gd"
 
+const SHOOT_TIME = 0.02
 const EVENT_COOLDOWN = 0.5
 const SPEED = 300
 
 onready var bullet = preload("res://bullets/water.tscn")
 onready var level = get_node("/root/level")
 var eventTimer = EVENT_COOLDOWN
+var timer = SHOOT_TIME
 
 func _process(delta):
 	eventTimer -= delta
@@ -18,14 +20,14 @@ func _process(delta):
 	if (Input.is_action_pressed("ui_right")): velocity.x = SPEED
 	
 	var mouse = get_global_mouse_pos()
-	var angle = get_pos().angle_to_point(mouse)
+	angle = get_pos().angle_to_point(mouse)
 	
-	if (angle > 0): set_scale(Vector2(-1,1))
-	if (angle < 0): set_scale(Vector2(1,1))
-	
-	if (Input.is_action_pressed("ui_accept")): shoot(bullet,angle + randf() / 2 - 0.25)
-	
-	if (Input.is_action_pressed("ui_cancel")): shoot(bullet,angle,-PI / 2.1)
+	if (Input.is_action_pressed("ui_accept")):
+		timer -= delta
+		if (timer <= 0):
+			shoot(bullet,angle)
+			timer = SHOOT_TIME
+
 
 func hit(other):
 	.hit(other)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=1]
+[gd_scene load_steps=9 format=1]
 
 [ext_resource path="res://pics/river.png" type="Texture" id=1]
 [ext_resource path="res://scripts/water.gd" type="Script" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://scripts/elevated.gd" type="Script" id=4]
 [ext_resource path="res://objects/player.tscn" type="PackedScene" id=5]
 [ext_resource path="res://objects/plant.tscn" type="PackedScene" id=6]
+[ext_resource path="res://bullets/redSolar.tscn" type="PackedScene" id=7]
 
 [sub_resource type="GDScript" id=1]
 
@@ -54,68 +55,103 @@ script/script = ExtResource( 4 )
 floating = 0
 radius = 0
 height = 1
+gravityMultiplier = 1.0
+elevation = 0
 flippy = true
 collider = true
 
 [node name="player" parent="dudes" instance=ExtResource( 5 )]
 
-transform/pos = Vector2( 523.898, 147.281 )
-collider = true
+transform/pos = Vector2( 841.902, 582.445 )
+elevation = 0
 
 [node name="plant" parent="dudes" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 348.931, 603.607 )
+gravityMultiplier = 1.0
+elevation = 0
 
 [node name="plant1" parent="dudes" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 378.995, 538.47 )
+gravityMultiplier = 1.0
+elevation = 0
 
 [node name="plant2" parent="dudes" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 439.121, 570.204 )
+gravityMultiplier = 1.0
+elevation = 0
 
 [node name="plant3" parent="dudes" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 390.686, 588.576 )
+gravityMultiplier = 1.0
+elevation = 0
 
 [node name="plant4" parent="dudes" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 1040.39, 216.125 )
+gravityMultiplier = 1.0
+elevation = 0
 
 [node name="plant5" parent="dudes" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 1053.75, 259.55 )
+gravityMultiplier = 1.0
+elevation = 0
 
 [node name="plant6" parent="dudes" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 1165.65, 144.307 )
+gravityMultiplier = 1.0
+elevation = 0
 
 [node name="plant7" parent="dudes" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 1404.49, 733.882 )
+gravityMultiplier = 1.0
+elevation = 0
 
 [node name="plant8" parent="dudes" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 1346.03, 802.359 )
+gravityMultiplier = 1.0
+elevation = 0
 
 [node name="plant9" parent="dudes" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 1529.75, 1069.59 )
+gravityMultiplier = 1.0
+elevation = 0
 
 [node name="plant10" parent="dudes" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 1606.58, 1017.81 )
+gravityMultiplier = 1.0
+elevation = 0
 
 [node name="plant11" parent="dudes" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 208.636, 1027.83 )
+gravityMultiplier = 1.0
+elevation = 0
 
 [node name="plant12" parent="dudes" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 789.859, 50.777 )
+gravityMultiplier = 1.0
+elevation = 0
 
 [node name="plant13" parent="dudes" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 1472.96, 632 )
+gravityMultiplier = 1.0
+elevation = 0
+
+[node name="bullet" parent="dudes" instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 847.321, 456.322 )
+elevation = 100
 
 

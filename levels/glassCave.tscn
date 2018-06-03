@@ -34,7 +34,6 @@ texture = ExtResource( 2 )
 [node name="player" parent="dudes" instance=ExtResource( 3 )]
 
 transform/pos = Vector2( 808.924, 618.907 )
-collider = true
 
 [node name="cave" type="Sprite" parent="dudes"]
 

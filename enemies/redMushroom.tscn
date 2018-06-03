@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=1]
+
+[ext_resource path="res://pics/weirdMushroom.png" type="Texture" id=1]
+[ext_resource path="res://scripts/redMushroom.gd" type="Script" id=2]
+
+[node name="redMushroom" type="Sprite"]
+
+transform/pos = Vector2( 531.455, 258.188 )
+texture = ExtResource( 1 )
+offset = Vector2( 2.12976, -31.0235 )
+script/script = ExtResource( 2 )
+floating = 0
+radius = 0
+height = 0
+gravityMultiplier = 1.0
+flippy = false
+collider = true
+hotHeight = 50
+
+

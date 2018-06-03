@@ -12,8 +12,11 @@ script/script = ExtResource( 2 )
 floating = 0
 radius = 0
 height = 0
+gravityMultiplier = 0.01
+elevation = 0
 flippy = false
-speed = 200
+collider = true
+speed = 300
 bounce = 0.5
 health = 1
 
